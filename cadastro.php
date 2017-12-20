@@ -11,27 +11,29 @@
 
 		<form name="cadastro" method="post" action="cadastrar.php">
 
-		Nome:
-		<input name="nome" type="text" id="nome" value="<?php echo $nome; ?>"/>
+			Nome:
+			<input name="nome" type="text" id="nome" value="Digite seu nome"/>
 
-		</hr>
+			</br>
 
-		Sobrenome:
-		<input name="sobrenome" type="text" id="sobrenome" value="<?php echo $sobrenome; ?>"/>
+			Sobrenome:
+			<input name="sobrenome" type="text" id="sobrenome" value="Digite o sobrenome"/>
 
-		</hr>
+			</br>
 
-		Usuario: 
-		<input name="cadastro_user" type="text" id="cadastro_user" value="<?php echo $cadastro_user; ?>"/>
+			Usuario: 
+			<input name="cadastro_user" type="text" id="cadastro_user" value="Digite nome de Usuario"/>
 
-		</hr>
+			</br>
 
-		Senha:
-		<input name="cadastro_senha" type="text" id="cadastro_senha" value="<?php echo $cadastro_senha; ?>"/>
+			Senha:
+			<input name="cadastro_senha" type="text" id="cadastro_senha" value="Digite uma senha"/>
 
-		<input type="submit" name="submit" value="Enviar"/>
+			</br>
 
-		</hr>
+			<input type="submit" name="submit" value="Enviar"/>
+
+			</br>
 
 		</form>
 

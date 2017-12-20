@@ -23,9 +23,10 @@
 			echo "Senha obrigatória.<br/>";
 		}
 	} else {
-		$sql_user_check = mysqli_query("SELECT COUNT(cadastro_id) FORM cadastro WHERE cadastro_user='{cadastro_user}'");
 
-		$uReg = mysqli_fetch_array($sql_user_check);
+		$sql_user_check = mysqli_query($conectar, "SELECT COUNT(cadastro_id) FROM cadastro WHERE cadastro_user='{cadastro_user}'");
+
+		$uReg = mysqli_fetch_array($sql_user_check, MYSQLI_NUM);
 
 		$user_check = $uReg[0];
 
@@ -35,25 +36,15 @@
 		}
 
 		include "cadastro.php";
-	/*
-	} else {
-		$sql = mysql_query(
+	
+	}
 
-		"INSERT INTO usuarios
-		(nome, sobrenome, cadastro_user, cadastro_senha)
+	$sql = mysqli_query($conectar, "INSERT INTO cadastro (nome, sobrenome, cadastro_user, cadastro_senha) VALUES ('$nome', '$sobrenome', '$cadastro_user', 'cadastro_senha')") or die (mysqli_error($conectar));
 
-		VALUES
-		('$nome', '$sobrenome', '$cadastro_user, cadastro_senha)")
-
-		or die( mysql_error()
-		);
-
-		if (!$sql){
-			echo "ERRO AO CRIAR USUARIO";
-		}
-	/*/
-	} 
-
-	$cadastro_id = mysqli_insert_id();
+	if (!$sql){
+		echo "ERRO AO CRIAR USUARIO";
+	}
+	
+	$cadastro_id = mysqli_insert_id($conectar);
 
 ?>
