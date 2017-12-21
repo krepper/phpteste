@@ -2,11 +2,11 @@
 
 	session_start();
 
+
+	echo "<strong> Bye!</strong> <br/> <br/>";
+	
+	echo "<a href=\"login.html\">Voltar a página de <strong>LOGIN</strong>!</a>";
+
 	session_destroy();
 
-	if(!session_is_registered('nome')){
-		echo "<strong> Bye!</strong> <br/> <br/>";
-
-		include "login.html";
-	}
 ?>

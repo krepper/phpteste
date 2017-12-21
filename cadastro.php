@@ -8,34 +8,36 @@
 	</head>
 
 	<body>
-
+		<center>
+		<h1><bold>CADASTRAR</bold></h1><br/><br/>
 		<form name="cadastro" method="post" action="cadastrar.php">
 
 			Nome:
-			<input name="nome" type="text" id="nome" value="Digite seu nome"/>
+			<input name="user_nome" type="text" id="user_nome" value="Digite seu nome"/>
 
-			</br>
+			</br><br/>
 
 			Sobrenome:
-			<input name="sobrenome" type="text" id="sobrenome" value="Digite o sobrenome"/>
+			<input name="user_sob" type="text" id="user_sob" value="Digite o sobrenome"/>
 
-			</br>
+			</br><br/>
 
 			Usuario: 
-			<input name="cadastro_user" type="text" id="cadastro_user" value="Digite nome de Usuario"/>
+			<input name="user_login" type="text" id="user_login" value="Digite nome de Usuario"/>
 
-			</br>
+			</br><br/>
 
 			Senha:
-			<input name="cadastro_senha" type="text" id="cadastro_senha" value="Digite uma senha"/>
+			<input name="user_senha" type="text" id="user_senha" value="Digite uma senha"/>
 
-			</br>
+			</br><br/>
 
 			<input type="submit" name="submit" value="Enviar"/>
 
-			</br>
+			</br><br/>
 
 		</form>
+		<center>
 
 	</body>
 	
