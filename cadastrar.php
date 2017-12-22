@@ -28,12 +28,11 @@
 
 		$sql_user_check = mysqli_query($conectar, "SELECT * FROM cadastro WHERE user_login='{user_login}'");
 
-		$uReg = mysqli_fetch_array($sql_user_check, MYSQLI_NUM);
+		$dado = mysqli_fetch_array($sql_user_check, MYSQLI_ASSOC);
+		echo $dado['user_login'];
 
-		$user_check = $uReg[0];
-
-		if($user_check<=0){
-			echo "<center><strong>ERRO</strong>: ESTE USUARIO JÁ EXISTE!!<br/></center";
+		if($dado['user_login'] == $user_login){
+			echo "<center><strong>ERRO</strong>: ESTE USUARIO JÁ EXISTE!!<br/></center>";
 			echo "<meta http-equiv=\"refresh\" content=\"5; url=cadastro.php\">";
 		} else {
 			$cadastro_valido = TRUE;

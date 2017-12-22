@@ -1,20 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?php		
+	session_start();
+
+	include "../config.php";
+
+	if($_SESSION['ativa'] != TRUE){
+		echo "<h1>NÃO ESTÁ LOGADO</h1><br/><br/>";
+
+		echo "<a href=\"../login.html\">Voltar a página de <strong>LOGIN</strong>!</a>";
+
+	} else {
+
+		if($_SESSION['user_nivel'] == 2){
+
+			$user_login = trim($_POST['user_login']);
+			$user_validar = trim($_POST['validar']);
+
+			$sql = mysqli_query($conectar, "SELECT * FROM cadastro WHERE user_login='{$user_login}'");
+
+			$validar_check = mysqli_num_rows($sql);
+
+			if($validar_check > 0){
+
+				$dado = mysqli_fetch_array($sql, MYSQLI_ASSOC);
+
+				$user_id = $dado['user_id'];
+
+				$sql = mysqli_query($conectar, "UPDATE cadastro SET user_ativo = '$user_validar' WHERE cadastro.user_id = '$user_id';") or die (mysqli_error($conectar));
 
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<title>ATIVAR/DESATIVA LOGIN</title>
-	</head>
+				if($user_validar == 1){
+					echo "<center><h1> USUARIO VALIDADO COM SUCESSO!</h1></center>";
+				} else {
+					echo "<center><h1> USUARIO NAO VALIDADO!</h1></center>";
+				}
 
-	<body>
-		<center>
+				echo "<br/><br/><center><a href=\"../area_restrita.php\">VOLTAR</a></center>";
 
-		<form name="cadastro" method="post" action="cadastrar.php">
-			<input type="submit" name="submit" value="Enviar"/>
-		<input type="submit" name="submit" value="Enviar"/>
+			} else {
+				echo "<center><h1>USUARIO NAO ENCONTRADO!</h1></center>";
+			}
+		}
+	}
 
-		</center>
-	</body>
-</html>
+?>
